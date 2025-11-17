@@ -6,7 +6,7 @@
 
   <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
 
-  <title>3DSR</title>
+  <title>Learning Group Actions In Disentangled Latent Image Representations</title>
 
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -123,8 +123,8 @@
         
         <br/><br/><br/>
         <div class="text-justify" style="width: 51%; font-size: 16px;">
-          The latent representation z of an image x is first partitioned into transformation relevant (z<sub>v</sub>) and invariant (z<sub>i</sub>) components using learnable binary masks (M(&alpha;)) with straight-through estimation.
-          The transformation relevant (z<sub>v</sub>) is then transformed using group action mappings corresponding to the desired transformation g. 
+          The latent representation z of an image x is first partitioned into transformation variant (z<sub>v</sub>) and invariant (z<sub>i</sub>) components using learnable binary masks (M(&alpha;)) with straight-through estimation.
+          The transformation variant (z<sub>v</sub>) is then transformed using group action mappings corresponding to the desired transformation g. 
           The transformed z<sub>v</sub><sup>g</sup> is combined with the invariant component z<sub>i</sub> to form the transformed latent representation &phi;<sub>g</sub>(z) which is sent to decoder to reconstruct the transformed image. 
            
         </div>      
