@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+
+  <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+
+  <title>3DSR</title>
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- mirror: F0%9F%AA%9E&lt -->
+
+  <link rel="stylesheet" type="text/css" href="./GA_learning_files/slick.css">
+  <link rel="stylesheet" type="text/css" href="./GA_learning_files/slick-theme.css">
+  <link rel="stylesheet" href="./GA_learning_files/bulma.min.css">
+  <link rel="stylesheet" href="./GA_learning_files/bulma-slider.min.css">
+  <link rel="stylesheet" href="./GA_learning_files/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./GA_learning_files/bootstrap.min.css">
+  <link rel="stylesheet" href="./GA_learning_files/font-awesome.min.css">
+  <link rel="stylesheet" href="./GA_learning_files/codemirror.min.css">
+  <link rel="stylesheet" href="./GA_learning_files/app.css">
+  <link rel="stylesheet" href="./GA_learning_files/index.css">
+  <!-- <link rel="stylesheet" href="./GA_learning_files/select.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <script src="./GA_learning_files/jquery.min.js"></script>
+  <script src="./GA_learning_files/bootstrap.min.js"></script>
+  <script src="./GA_learning_files/codemirror.min.js"></script>
+  <script src="./GA_learning_files/clipboard.min.js"></script>
+  <script src="./GA_learning_files/video_comparison.js"></script>
+  <script src="./GA_learning_files/select.js"></script>
+  <script src="./GA_learning_files/bulma-slider.min.js"></script>
+  <script src="./GA_learning_files/bulma-carousel.min.js"></script>
+  <!-- <script src="./GA_learning_files/app.js"></script> -->
+  <script src="./GA_learning_files/index.js"></script>
+  <!-- <script src="./GA_learning_files/slick.js"></script> -->
+ <style>
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .title, .subtitle, .author-block, .button {
+    font-family: 'Inter', sans-serif !important;
+  }
+</style>
+</head>
+
+<body onload="ChangeSim(0)">
+  <div class="container" id="header" style="text-align: center; margin: auto;">
+    <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
+      <h2 class="col-md-12 text-center" id="title" style="font-size: 39px;">
+        <!-- <b>Editing Neural Radiance Fields from <br>a Single Reference Image<br></b> -->
+         <b>Learning Group Actions In Disentangled Latent Image Representations</b>
+      </h2>
+    </div>      
+    <div class="publication-authors" style="text-align: center; line-height: 1.6;">
+      <div>
+        <a href="https://www.linkedin.com/in/farhanaswarnali/" style="font-size: 18px;">Farhana Hossain Swarnali</a><sup>2</sup>&nbsp;&nbsp;
+        <a href="https://www.linkedin.com/in/miaomiao-zhang-a5665055/" style="font-size: 18px;">Miaomiao Zhang</a><sup>2</sup>&nbsp;&nbsp;
+        <a href="https://www.linkedin.com/in/tonmoy-hossain-dihan/" style="font-size: 18px;">Tonmoy Hossain Dihan</a><sup>2</sup>&nbsp;&nbsp;     
+      </div>
+      <div style="font-size: 18px; margin-top: 5px;">
+        <sup>1</sup>Genuity Systems Ltd.&nbsp;&nbsp;
+        <sup>2</sup>University of Virginia&nbsp;&nbsp;
+      </div>
+    </div>    
+    <h2 class="title is-3 publication-title" style="font-size: 26px; margin-top: 20px; margin-bottom: 16px;">WACV 2026</h2>    
+  <div class="publication-links" style="margin-top: 20px;">
+    <!-- Code Link -->
+    <span class="link-block" style="margin-right: 10px;">
+      <a href="https://anonymous.4open.science/r/Learning-Group-Actions-In-Disentangled-Latent-Image-Representations-F575"
+        class="external-link button is-large is-rounded is-dark">      
+        <span class="icon is-large">
+          <i class="fab fa-github fa-lg"></i>
+        </span>
+        <span>Code</span>
+      </a>
+    </span>
+    <!-- BibTeX Link -->
+    <span class="link-block">
+      <a href="#bibtex-section"
+        class="external-link button is-large is-rounded is-dark">       
+        <span class="icon is-large">
+          <i class="fas fa-book fa-lg"></i>
+        </span>
+        <span>BibTeX</span>
+      </a>
+    </span>
+  </div>
+  </div>
+  <script>
+  </script>
+  <br><br>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <center>
+          <h3>
+            <b>Abstract</b>             
+          </h3>
+          <div class="text-justify" style="width: 51%; font-size: 16px;">
+            Modeling group actions on latent representations enables controllable transformations of high-dimensional image data. 
+            Prior works applying group-theoretic priors or modeling transformations typically operate in the high-dimensional data space, 
+            where group actions apply uniformly across the entire input, making it difficult to disentangle the subspace that varies under transformations. 
+            While latent-space methods offer greater flexibility, they still require manual partitioning of latent variables into equivariant and invariant 
+            subspaces, limiting the ability to robustly learn and operate group actions within the latent space. To address this, we introduce a novel 
+            end-to-end framework that for the first time learns group actions on latent image manifolds, automatically discovering transformation-relevant 
+            structures without manual intervention. Our method uses learnable binary masks with straight-through estimation to dynamically partition latent 
+            representations into transformation-sensitive and invariant components. We formulate this within a unified optimization framework that jointly 
+            learns latent disentanglement and group transformation mappings. The framework can be seamlessly integrated with any standard encoder-decoder 
+            architecture. We validate our approach on five 2D/3D image datasets, demonstrating its ability to automatically learn disentangled latent factors 
+            for group actions, while downstream classification tasks confirm the effectiveness of the learned representations.        
+          </div>
+        <br><br><br>
+        <h3>
+          <b>Method Overview</b>
+        </h3>          
+          <img src="./GA_learning_files/images/model.png" class="img-responsive" alt="overview" width="60%"
+            style="max-height: 500px;margin:auto;">
+        
+        <br/><br/><br/>
+        <div class="text-justify" style="width: 51%; font-size: 16px;">
+          The latent representation z of an image x is first partitioned into transformation relevant (z<sub>v</sub>) and invariant (z<sub>i</sub>) components using learnable binary masks (M(&alpha;)) with straight-through estimation.
+          The transformation relevant (z<sub>v</sub>) is then transformed using group action mappings corresponding to the desired transformation g. 
+          The transformed z<sub>v</sub><sup>g</sup> is combined with the invariant component z<sub>i</sub> to form the transformed latent representation &phi;<sub>g</sub>(z) which is sent to decoder to reconstruct the transformed image. 
+           
+        </div>      
+      </center>
+      </div>
+    </div>
+
+    <div class="row">
+    <br><br>
+  <div class="col-md-10 col-md-offset-1 has-text-centered" id="bibtex-section">
+
+    <!-- Heading and Button on the same line -->
+    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
+      <h3 style="margin: 0;">BibTeX</h3>
+      <button onclick="copyBibTex()" style="padding: 6px 12px; font-size: 14px;">
+        📋 Copy BibTeX
+      </button>
+    </div>
+
+    <!-- BibTeX code block -->
+    <pre style="text-align: left; display: inline-block; background-color: #f8f8f8; padding: 15px; border-radius: 6px;"><code id="bibtex">
+@inproceedings{swarnali2026learning,
+  author    = {Swarnali, Farhana Hossain and Zhang, Miaomiao and Hossain, Tonmoy},
+  title     = {Learning Group Actions In Disentangled Latent Image Representations},
+  booktitle = {Proceedings of the Winter Conference on Applications of Computer Vision (WACV)},
+  year      = {2026},
+  note      = {To appear}
+}
+</code></pre>
+
+  </div>
+</div>
+
+        <script>
+          function copyBibTex() {
+            const code = document.getElementById("bibtex").innerText;
+            const textarea = document.createElement("textarea");
+            textarea.value = code;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+              document.execCommand("copy");
+              alert("Copied to clipboard!");
+            } catch (err) {
+              alert("Copy failed.");
+            }
+            document.body.removeChild(textarea);
+          }
+        </script>
+      </div>
+
+        <h3>
+          Acknowledgements
+        </h3>
+
+        The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>, <A
+          href="https://dorverbin.github.io/refnerf/index.html">RefNeRF</a> , <A
+          href="https://nerfies.github.io/">Nerfies</A> and <A
+          href="https://hhsinping.github.io/svs/supp/visual_comparison.html">Semantic View Synthesis</a>.
+      </div>
+    <!-- </div> -->
+    </div>  
+</body>
+
+</html>
