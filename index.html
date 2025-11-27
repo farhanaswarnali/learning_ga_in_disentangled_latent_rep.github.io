@@ -38,15 +38,43 @@
   <!-- <script src="./GA_learning_files/app.js"></script> -->
   <script src="./GA_learning_files/index.js"></script>
   <!-- <script src="./GA_learning_files/slick.js"></script> -->
- <style>
-  body {
-    font-family: 'Inter', sans-serif;
-  }
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
 
-  .title, .subtitle, .author-block, .button {
-    font-family: 'Inter', sans-serif !important;
-  }
-</style>
+    .title, .subtitle, .author-block, .button {
+      font-family: 'Inter', sans-serif !important;
+    }
+
+    /* Results toggle: mimic text blocks, just hide/show */
+    .result-fig {
+      display: none;
+    }
+
+    .active-result-fig {
+      display: block;
+    }
+    .results-toggle-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      max-width: 65%;      /* align with your text column */
+      margin: 0 auto 18px; /* center + same bottom margin */
+    }
+
+    .results-toggle-group .result-toggle-btn {
+      flex: 1 1 0;         /* all buttons same width */
+      white-space: normal; /* allow text wrap */
+      text-align: center;
+      line-height: 1.2;
+      padding: 8px 10px;
+    }
+
+  </style>
+
+
 </head>
 
 <body onload="ChangeSim(0)">
@@ -136,7 +164,7 @@
           <h3>
             <b>Abstract</b>             
           </h3>
-          <div class="text-justify" style="width: 51%; font-size: 16px;">
+          <div class="text-justify" style="width: 65%; font-size: 16px;">
             Modeling group actions on latent representations enables controllable transformations of high-dimensional image data. 
             Prior works applying group-theoretic priors or modeling transformations typically operate in the high-dimensional data space, 
             where group actions apply uniformly across the entire input, making it difficult to disentangle the subspace that varies under transformations. 
@@ -157,7 +185,7 @@
             style="max-height: 500px;margin:auto;">
         
         <br/><br/><br/>
-        <div class="text-justify" style="width: 51%; font-size: 16px;">
+        <div class="text-justify" style="width: 65%; font-size: 16px;">
           Our architecture employs an encoder–decoder framework with convolutional downsampling modules in the encoder and corresponding upsampling modules in the decoder.
           <br><br>
           The latent representation z of an image x is first partitioned into transformation variant (z<sub>v</sub>) and invariant (z<sub>i</sub>) components using learnable binary masks (M(&alpha;)) with straight-through estimation.
@@ -165,7 +193,7 @@
           The transformed z<sub>v</sub><sup>g</sup> is combined with the invariant component z<sub>i</sub> to form the transformed latent representation &phi;<sub>g</sub>(z) which is sent to decoder to reconstruct the transformed image. 
            
         </div>     
-        <div class="text-justify" style="width: 51%; font-size: 16px;">
+        <div class="text-justify" style="width: 65%; font-size: 16px;">
           <br>
           During training:
           <br>
@@ -216,16 +244,16 @@
           
           Training uses the Adam optimizer (learning rate <code>1e-3</code>), batch size <code>64</code>, for <code>50</code> epochs, saving the model with the lowest validation loss.
         </div>
-        <br><br><br>
+        <!-- <br><br><br>
         <h3>
           <b>Qualitative Ablation Study</b>
         </h3>
         <br/>
-        <img src="GA_learning_files\images\loss_ablations.png" class="img-responsive" alt="ablation study" width="80%"
+        <img src="GA_learning_files\images\loss_ablations.png" class="img-responsive" alt="ablation study" width="65%"
           style="max-height: 600px;margin:auto;">
         <br/><br/>
 
-        <div class="text-justify" style="width: 51%; font-size: 16px;">
+        <div class="text-justify" style="width: 65%; font-size: 16px;">
           The above figure is related to the qualitative ablation study of different loss components on learning group action and reconstruction quality. 
           In each dataset panel, Input and Ground-Truth (GT) pair visualizations (from left to right) with the predicted images operated after learn group actions 
           (top to bottom). Top row: 2D MNIST digit and rotated and blocked MNIST datasets, learning SO(2) group actions, respectively. 
@@ -233,6 +261,104 @@
           Our model successfully learns the underlying SO(2) and SO(3) group actions across all loss configurations, with the joint optimization 
           (<img src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{inv}}" alt="L_inv" style="height: 16px; vertical-align: middle;"> + 
   <img src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{const}}" alt="L_const" style="height: 16px; vertical-align: middle;">) achieving the lowest error magnitudes and most optimal reconstructions.
+        </div> -->
+        <br><br><br>
+        <h3><b>Experimental Results</b></h3>
+        <br/>
+
+        <div style="text-align: center;">
+
+          <!-- Intro text: same width as other text-justify blocks -->
+          <div class="text-justify" style="width: 65%; font-size: 15px; margin: 0 auto 20px;">
+            <!-- This section summarizes  -->
+          </div>
+
+          <!-- Toggle buttons -->
+          <div class="results-toggle-group">
+            <button class="btn btn-dark result-toggle-btn active"
+                    type="button"
+                    data-target="fig-group-actions">
+              Reconstruction &amp; Latent Representation visualization
+            </button>
+            <button class="btn btn-outline-dark result-toggle-btn"
+                    type="button"
+                    data-target="fig-latent">
+              Latent Swap Evaluation
+            </button>
+            <button class="btn btn-outline-dark result-toggle-btn"
+                    type="button"
+                    data-target="fig-ablation">
+              Ablation of Losses
+            </button>
+          </div>
+
+
+          <!-- 1. Group Actions on Images (plane figure) -->
+          <div id="fig-group-actions" class="result-fig active-result-fig">
+            <div class="text-justify" style="width: 65%; font-size: 16px; margin: 0 auto;">
+              <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; text-align: left;">
+                <!-- Evaluation of learned group actions in image space -->
+              </h4>
+              <img src="GA_learning_files/images/lat_vizs.png"
+                  class="img-responsive"
+                  alt="Group actions on images"
+                  style="width: 100%; max-height: 600px; margin: 0 auto 12px; display: block;">
+              <div style="font-size: 14px; text-align: justify;">
+                <br>
+                  The above figure displays visualization of disentangled latent representations showing averaged magnitude of varying (z<sub>v</sub>) and invariant (z<sub>i</sub>) components 
+                  for 3D adrenal shapes (left) and 2D rotated blocked MNIST (right), demonstrating effective separation of transformation-specific and 
+                  transformation-invariant features.
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Latent Space Structure -->
+          <div id="fig-latent" class="result-fig">
+            <div class="text-justify" style="width: 65%; font-size: 16px; margin: 0 auto;">
+              <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; text-align: left;">
+                <!-- Effectiveness of the latent disentanglement (ALD) module -->
+              </h4>
+              <img src="GA_learning_files/images/plane_swap2.png"
+                  class="img-responsive"
+                  alt="Latent representation visualization"
+                  style="width: 100%; max-height: 600px; margin: 0 auto 12px; display: block;">
+              <div style="font-size: 14px; text-align: justify;">
+                <br>
+                The above figure shows the visualizations of latent factor swapping validation of learned disentanglement. By exchanging varying (z<sub>v</sub>) and 
+                invariant (z<sub>i</sub>) components between input pairs, our method generates novel combinations of object orientations with different backgrounds, 
+                demonstrating effective separation of transformation-sensitive and invariant factors without manual specification.
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Loss Ablation & Error Maps -->
+          <div id="fig-ablation" class="result-fig">
+            <div class="text-justify" style="width: 65%; font-size: 16px; margin: 0 auto;">
+              <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; text-align: left;">
+                <!-- Ablation study on network loss components -->
+              </h4>
+              <img src="./GA_learning_files/images/loss_ablations.png"
+                  class="img-responsive"
+                  alt="Loss ablation study"
+                  style="width: 100%; max-height: 600px; margin: 0 auto 12px; display: block;">
+              <div style="font-size: 14px; text-align: justify;">
+                 <br>
+                  The above figure is related to the qualitative ablation study of different loss components on learning group action and reconstruction quality. 
+                  In each dataset panel, Input and Ground-Truth (GT) pair visualizations (from left to right) with the predicted images operated after learn group actions 
+                  (top to bottom). Top row: 2D MNIST digit and rotated and blocked MNIST datasets, learning SO(2) group actions, respectively. 
+                  Bottom row: 3D brain MRIs and 3D adrenal shapes results, learning SO(3) group actions. The colormap indicates reconstruction error magnitude. 
+                  Our model successfully learns the underlying SO(2) and SO(3) group actions across all loss configurations, with the joint optimization 
+                  (<img src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{inv}}" alt="L_inv" style="height: 16px; vertical-align: middle;"> + 
+                  <img src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{const}}" alt="L_const" style="height: 16px; vertical-align: middle;">) achieving the lowest error magnitudes and most optimal reconstructions.
+                
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
         </div>
 
       </center>
@@ -281,6 +407,39 @@
             document.body.removeChild(textarea);
           }
         </script>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            var buttons = document.querySelectorAll('.result-toggle-btn');
+            var figures = document.querySelectorAll('.result-fig');
+
+            buttons.forEach(function (btn) {
+              btn.addEventListener('click', function () {
+                var targetId = btn.getAttribute('data-target');
+
+                // update button styles
+                buttons.forEach(function (b) {
+                  b.classList.remove('active');
+                  b.classList.remove('btn-dark');
+                  b.classList.remove('btn-outline-dark');
+                  b.classList.add('btn-outline-dark');
+                });
+                btn.classList.add('active');
+                btn.classList.remove('btn-outline-dark');
+                btn.classList.add('btn-dark');
+
+                // show the selected figure, hide others
+                figures.forEach(function (fig) {
+                  fig.classList.remove('active-result-fig');
+                });
+                var targetFig = document.getElementById(targetId);
+                if (targetFig) {
+                  targetFig.classList.add('active-result-fig');
+                }
+              });
+            });
+          });
+        </script>
+
       </div>
 
         <h3>
