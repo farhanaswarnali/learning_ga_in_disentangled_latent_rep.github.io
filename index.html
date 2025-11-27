@@ -41,6 +41,7 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
+      background-color: #f5f5f7;        /* softer background */
     }
 
     .title, .subtitle, .author-block, .button {
@@ -55,24 +56,104 @@
     .active-result-fig {
       display: block;
     }
+
     .results-toggle-group {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 8px;
-      max-width: 65%;      /* align with your text column */
-      margin: 0 auto 18px; /* center + same bottom margin */
+      max-width: 65%;
+      margin: 0 auto 18px;
     }
 
     .results-toggle-group .result-toggle-btn {
-      flex: 1 1 0;         /* all buttons same width */
-      white-space: normal; /* allow text wrap */
+      flex: 1 1 0;
+      white-space: normal;
       text-align: center;
       line-height: 1.2;
       padding: 8px 10px;
+      font-size: 13px;
     }
 
+    /* New: central "card" for main content */
+    .main-section-card {
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      padding-top: 40px;
+      padding-bottom: 50px;
+      margin-bottom: 40px;
+    }
+
+    /* Section headings */
+    h3 b {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+    }
+
+    /* Make big figures look a bit softer */
+    .result-fig img {
+      border-radius: 10px;
+    }
+
+    /* Slightly tighter text under figures */
+    .result-fig .text-justify {
+      font-size: 14px;
+    }
+
+    .results-toggle-group .result-toggle-btn {
+      transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .results-toggle-group .result-toggle-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+
+    .results-toggle-group .btn-dark {
+      border-color: #111827;
+    }
+
+    .results-toggle-group .btn-outline-dark {
+      border-color: #4b5563;
+      color: #111827;
+    }
+    #title {
+      font-size: 34px !important;
+      line-height: 1.2;
+    }
+
+    #header {
+      padding-top: 40px;
+      padding-bottom: 10px;
+    }
+    .content-column {
+      width: 65%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      .content-column {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 16px;
+      }
+
+      .results-toggle-group {
+        max-width: 100%;
+        padding: 0 16px;
+      }
+
+      #title {
+        font-size: 26px !important;
+      }
+    }
   </style>
+
 
 
 </head>
@@ -158,13 +239,14 @@
   <script>
   </script>
   <br><br>
-    <div class="row">
+    <div class="row main-section-card">
       <div class="col-md-10 col-md-offset-1">
         <center>
           <h3>
             <b>Abstract</b>             
           </h3>
-          <div class="text-justify" style="width: 65%; font-size: 16px;">
+          <div class="text-justify content-column" style="font-size: 16px;">
+
             Modeling group actions on latent representations enables controllable transformations of high-dimensional image data. 
             Prior works applying group-theoretic priors or modeling transformations typically operate in the high-dimensional data space, 
             where group actions apply uniformly across the entire input, making it difficult to disentangle the subspace that varies under transformations. 
@@ -185,7 +267,8 @@
             style="max-height: 500px;margin:auto;">
         
         <br/><br/><br/>
-        <div class="text-justify" style="width: 65%; font-size: 16px;">
+        <div class="text-justify content-column" style="font-size: 16px;">
+
           Our architecture employs an encoder–decoder framework with convolutional downsampling modules in the encoder and corresponding upsampling modules in the decoder.
           <br><br>
           The latent representation z of an image x is first partitioned into transformation variant (z<sub>v</sub>) and invariant (z<sub>i</sub>) components using learnable binary masks (M(&alpha;)) with straight-through estimation.
@@ -193,7 +276,8 @@
           The transformed z<sub>v</sub><sup>g</sup> is combined with the invariant component z<sub>i</sub> to form the transformed latent representation &phi;<sub>g</sub>(z) which is sent to decoder to reconstruct the transformed image. 
            
         </div>     
-        <div class="text-justify" style="width: 65%; font-size: 16px;">
+        <div class="text-justify content-column" style="font-size: 16px;">
+
           <br>
           During training:
           <br>
@@ -253,7 +337,8 @@
           style="max-height: 600px;margin:auto;">
         <br/><br/>
 
-        <div class="text-justify" style="width: 65%; font-size: 16px;">
+        <div class="text-justify content-column" style="font-size: 16px;">
+
           The above figure is related to the qualitative ablation study of different loss components on learning group action and reconstruction quality. 
           In each dataset panel, Input and Ground-Truth (GT) pair visualizations (from left to right) with the predicted images operated after learn group actions 
           (top to bottom). Top row: 2D MNIST digit and rotated and blocked MNIST datasets, learning SO(2) group actions, respectively. 
@@ -264,13 +349,11 @@
         </div> -->
         <br><br><br>
         <h3><b>Experimental Results</b></h3>
-        <br/>
-
         <div style="text-align: center;">
 
           <!-- Intro text: same width as other text-justify blocks -->
-          <div class="text-justify" style="width: 65%; font-size: 15px; margin: 0 auto 20px;">
-            <!-- This section summarizes  -->
+          <div class="text-justify" style="width: 65%; font-size: 15px; margin: 4px auto 20px; opacity: 0.9;">
+            <!-- maybe i'll write something later. -->
           </div>
 
           <!-- Toggle buttons -->
@@ -280,12 +363,12 @@
                     data-target="fig-group-actions">
               Reconstruction &amp; Latent Representation visualization
             </button>
-            <button class="btn btn-outline-dark result-toggle-btn"
+            <button class="btn btn-dark result-toggle-btn active"
                     type="button"
                     data-target="fig-latent">
               Latent Swap Evaluation
             </button>
-            <button class="btn btn-outline-dark result-toggle-btn"
+            <button class="btn btn-dark result-toggle-btn active"
                     type="button"
                     data-target="fig-ablation">
               Ablation of Losses
@@ -439,6 +522,21 @@
             });
           });
         </script>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            var bibLink = document.querySelector('a[href="#bibtex-section"]');
+            if (bibLink) {
+              bibLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                var target = document.getElementById('bibtex-section');
+                if (target) {
+                  target.scrollIntoView({ behavior: 'smooth' });
+                }
+              });
+            }
+          });
+        </script>
+
 
       </div>
 
