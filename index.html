@@ -41,10 +41,14 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f5f5f7;        /* softer background */
+      background-color: #f5f5f7;
+      /* softer background */
     }
 
-    .title, .subtitle, .author-block, .button {
+    .title,
+    .subtitle,
+    .author-block,
+    .button {
       font-family: 'Inter', sans-serif !important;
     }
 
@@ -80,10 +84,14 @@
       background: #ffffff;
       border-radius: 18px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-      padding-top: 40px;
-      padding-bottom: 50px;
+      padding-top: 20px;
+      /* was 40px */
+      padding-bottom: 40px;
+      margin-top: 8px;
+      /* optional: pull card a bit closer to nav */
       margin-bottom: 40px;
     }
+
 
     /* Section headings */
     h3 b {
@@ -111,7 +119,7 @@
 
     .results-toggle-group .result-toggle-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
     }
 
     .results-toggle-group .btn-dark {
@@ -122,20 +130,26 @@
       border-color: #4b5563;
       color: #111827;
     }
+
     #title {
       font-size: 34px !important;
       line-height: 1.2;
     }
 
     #header {
-      padding-top: 40px;
-      padding-bottom: 10px;
+      border-bottom: none;
+      padding-bottom: 16px;
+      margin-bottom: 0;
     }
+
+
+
     .content-column {
       width: 65%;
       max-width: 900px;
       margin: 0 auto;
     }
+
     @media (max-width: 768px) {
       .content-column {
         width: 100%;
@@ -152,6 +166,75 @@
         font-size: 26px !important;
       }
     }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      background: rgba(245, 245, 247, 0.9);
+      backdrop-filter: blur(10px);
+    }
+
+    .top-nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 10px 16px 12px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .top-nav-menu {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      border-radius: 999px;
+      background: #ffffff;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .top-nav-link {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #4b5563;
+      text-decoration: none;
+      transition:
+        background-color 0.15s ease,
+        color 0.15s ease,
+        transform 0.12s ease;
+    }
+
+    .top-nav-link:hover {
+      transform: translateY(-0.5px);
+      background-color: #f3f4f6;
+      color: #111827;
+    }
+
+    .top-nav-link.active {
+      background-color: #111827;
+      color: #ffffff;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 768px) {
+      .top-nav-inner {
+        justify-content: center;
+      }
+
+      .top-nav-menu {
+        flex-wrap: wrap;
+        row-gap: 4px;
+        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+      }
+
+      .top-nav-link {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+    }
   </style>
 
 
@@ -163,47 +246,49 @@
     <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
       <h2 class="col-md-12 text-center" id="title" style="font-size: 39px;">
         <!-- <b>Editing Neural Radiance Fields from <br>a Single Reference Image<br></b> -->
-         <b>Learning Group Actions In Disentangled Latent Image Representations</b>
+        <b>Learning Group Actions In Disentangled Latent Image Representations</b>
       </h2>
-    </div>      
+    </div>
     <div class="publication-authors" style="text-align: center; line-height: 1.6;">
       <div>
-        <a href="https://www.linkedin.com/in/farhanaswarnali/" style="font-size: 18px;">Farhana Hossain Swarnali</a><sup>1</sup>&nbsp;&nbsp;
-        <a href="https://www.linkedin.com/in/miaomiao-zhang-a5665055/" style="font-size: 18px;">Miaomiao Zhang</a><sup>2</sup>&nbsp;&nbsp;
-        <a href="https://www.linkedin.com/in/tonmoy-hossain-dihan/" style="font-size: 18px;">Tonmoy Hossain</a><sup>2</sup>&nbsp;&nbsp;     
+        <a href="https://www.linkedin.com/in/farhanaswarnali/" style="font-size: 18px;">Farhana Hossain
+          Swarnali</a><sup>1</sup>&nbsp;&nbsp;
+        <a href="https://www.linkedin.com/in/miaomiao-zhang-a5665055/" style="font-size: 18px;">Miaomiao
+          Zhang</a><sup>2</sup>&nbsp;&nbsp;
+        <a href="https://www.linkedin.com/in/tonmoy-hossain-dihan/" style="font-size: 18px;">Tonmoy
+          Hossain</a><sup>2</sup>&nbsp;&nbsp;
       </div>
       <div style="font-size: 18px; margin-top: 5px;">
         <sup>1</sup>Genuity Systems Limited&nbsp;&nbsp;
         <sup>2</sup>University of Virginia&nbsp;&nbsp;
       </div>
-    </div>    
-    <h2 class="title is-3 publication-title" style="font-size: 26px; margin-top: 20px; margin-bottom: 16px;">WACV 2026</h2>    
-  <div class="publication-links" style="margin-top: 20px;">
+    </div>
+    <h2 class="title is-3 publication-title" style="font-size: 26px; margin-top: 20px; margin-bottom: 16px;">WACV 2026
+    </h2>
+    <div class="publication-links" style="margin-top: 20px;">
 
-    <!-- Paper Link -->
-    <span class="link-block" style="margin-right: 10px;">
-      <a href=""
-        class="external-link button is-large is-rounded is-dark">
-      
-        <span class="icon is-large">
-          <i class="fas fa-file-pdf fa-lg"></i>
-        </span>
-        <span>Paper</span>
-      </a>
-    </span>
-    <!-- Arxiv Link -->
-    <span class="link-block" style="margin-right: 10px;">
-      <a href=""
-        class="external-link button is-large is-rounded is-dark">
-      
-        <span class="icon is-large">
-          <i class="fas fa-file-pdf fa-lg"></i>
-        </span>
-        <span>Arxiv</span>
-      </a>
-    </span>
-    <!-- Poster Link -->
-    <!-- <span class="link-block" style="margin-right: 10px;">
+      <!-- Paper Link -->
+      <span class="link-block" style="margin-right: 10px;">
+        <a href="" class="external-link button is-large is-rounded is-dark">
+
+          <span class="icon is-large">
+            <i class="fas fa-file-pdf fa-lg"></i>
+          </span>
+          <span>Paper</span>
+        </a>
+      </span>
+      <!-- Arxiv Link -->
+      <span class="link-block" style="margin-right: 10px;">
+        <a href="" class="external-link button is-large is-rounded is-dark">
+
+          <span class="icon is-large">
+            <i class="fas fa-file-pdf fa-lg"></i>
+          </span>
+          <span>Arxiv</span>
+        </a>
+      </span>
+      <!-- Poster Link -->
+      <!-- <span class="link-block" style="margin-right: 10px;">
       <a href=""
         class="external-link button is-large is-rounded is-dark">
       
@@ -214,18 +299,18 @@
       </a>
     </span> -->
 
-    <!-- Code Link -->
-    <span class="link-block" style="margin-right: 10px;">
-      <a href="https://anonymous.4open.science/r/Learning-Group-Actions-In-Disentangled-Latent-Image-Representations-F575"
-        class="external-link button is-large is-rounded is-dark">      
-        <span class="icon is-large">
-          <i class="fab fa-github fa-lg"></i>
-        </span>
-        <span>Code</span>
-      </a>
-    </span>
-    <!-- BibTeX Link -->
-    <span class="link-block">
+      <!-- Code Link -->
+      <span class="link-block" style="margin-right: 10px;">
+        <a href="https://anonymous.4open.science/r/Learning-Group-Actions-In-Disentangled-Latent-Image-Representations-F575"
+          class="external-link button is-large is-rounded is-dark">
+          <span class="icon is-large">
+            <i class="fab fa-github fa-lg"></i>
+          </span>
+          <span>Code</span>
+        </a>
+      </span>
+      <!-- BibTeX Link -->
+      <!-- <span class="link-block">
       <a href="#bibtex-section"
         class="external-link button is-large is-rounded is-dark">       
         <span class="icon is-large">
@@ -233,49 +318,78 @@
         </span>
         <span>BibTeX</span>
       </a>
-    </span>
+    </span> -->
+    </div>
   </div>
-  </div>
+  <!-- Top navigation bar -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <div class="top-nav-menu">
+        <a href="#abstract" class="top-nav-link active">Abstract</a>
+        <a href="#method-overview" class="top-nav-link">Method Overview</a>
+        <a href="#experimental-results" class="top-nav-link">Experimental Results</a>
+        <a href="#bibtex-section" class="top-nav-link">BibTeX</a>
+      </div>
+    </div>
+  </nav>
+
   <script>
   </script>
-  <br><br>
-    <div class="row main-section-card">
-      <div class="col-md-10 col-md-offset-1">
-        <center>
-          <h3>
-            <b>Abstract</b>             
-          </h3>
-          <div class="text-justify content-column" style="font-size: 16px;">
-
-            Modeling group actions on latent representations enables controllable transformations of high-dimensional image data. 
-            Prior works applying group-theoretic priors or modeling transformations typically operate in the high-dimensional data space, 
-            where group actions apply uniformly across the entire input, making it difficult to disentangle the subspace that varies under transformations. 
-            While latent-space methods offer greater flexibility, they still require manual partitioning of latent variables into equivariant and invariant 
-            subspaces, limiting the ability to robustly learn and operate group actions within the latent space. To address this, we introduce a novel 
-            end-to-end framework that for the first time learns group actions on latent image manifolds, automatically discovering transformation-relevant 
-            structures without manual intervention. Our method uses learnable binary masks with straight-through estimation to dynamically partition latent 
-            representations into transformation-sensitive and invariant components. We formulate this within a unified optimization framework that jointly 
-            learns latent disentanglement and group transformation mappings. The framework can be seamlessly integrated with any standard encoder-decoder 
-            architecture. We validate our approach on five 2D/3D image datasets, demonstrating its ability to automatically learn disentangled latent factors 
-            for group actions, while downstream classification tasks confirm the effectiveness of the learned representations.        
-          </div>
-        <br><br><br>
-        <h3>
-          <b>Method Overview</b>
-        </h3>          
-          <img src="./GA_learning_files/images/model.png" class="img-responsive" alt="overview" width="60%"
-            style="max-height: 500px;margin:auto;">
-        
-        <br/><br/><br/>
+  <!-- <br><br> -->
+  <div class="row main-section-card">
+    <div class="col-md-10 col-md-offset-1">
+      <center>
+        <h3 id="abstract">
+          <b>Abstract</b>
+        </h3>
         <div class="text-justify content-column" style="font-size: 16px;">
 
-          Our architecture employs an encoder–decoder framework with convolutional downsampling modules in the encoder and corresponding upsampling modules in the decoder.
+          Modeling group actions on latent representations enables controllable transformations of high-dimensional
+          image data.
+          Prior works applying group-theoretic priors or modeling transformations typically operate in the
+          high-dimensional data space,
+          where group actions apply uniformly across the entire input, making it difficult to disentangle the subspace
+          that varies under transformations.
+          While latent-space methods offer greater flexibility, they still require manual partitioning of latent
+          variables into equivariant and invariant
+          subspaces, limiting the ability to robustly learn and operate group actions within the latent space. To
+          address this, we introduce a novel
+          end-to-end framework that for the first time learns group actions on latent image manifolds, automatically
+          discovering transformation-relevant
+          structures without manual intervention. Our method uses learnable binary masks with straight-through
+          estimation to dynamically partition latent
+          representations into transformation-sensitive and invariant components. We formulate this within a unified
+          optimization framework that jointly
+          learns latent disentanglement and group transformation mappings. The framework can be seamlessly integrated
+          with any standard encoder-decoder
+          architecture. We validate our approach on five 2D/3D image datasets, demonstrating its ability to
+          automatically learn disentangled latent factors
+          for group actions, while downstream classification tasks confirm the effectiveness of the learned
+          representations.
+        </div>
+        <br><br><br>
+        <h3 id="method-overview">
+          <b>Method Overview</b>
+        </h3>
+        <img src="./GA_learning_files/images/model.png" class="img-responsive" alt="overview" width="60%"
+          style="max-height: 500px;margin:auto;">
+
+        <br /><br /><br />
+        <div class="text-justify content-column" style="font-size: 16px;">
+
+          Our architecture employs an encoder–decoder framework with convolutional downsampling modules in the encoder
+          and corresponding upsampling modules in the decoder.
           <br><br>
-          The latent representation z of an image x is first partitioned into transformation variant (z<sub>v</sub>) and invariant (z<sub>i</sub>) components using learnable binary masks (M(&alpha;)) with straight-through estimation.
-          The transformation variant (z<sub>v</sub>) is then transformed using group action mappings corresponding to the desired transformation g. 
-          The transformed z<sub>v</sub><sup>g</sup> is combined with the invariant component z<sub>i</sub> to form the transformed latent representation &phi;<sub>g</sub>(z) which is sent to decoder to reconstruct the transformed image. 
-           
-        </div>     
+          The latent representation z of an image x is first partitioned into transformation variant (z<sub>v</sub>) and
+          invariant (z<sub>i</sub>) components using learnable binary masks (M(&alpha;)) with straight-through
+          estimation.
+          The transformation variant (z<sub>v</sub>) is then transformed using group action mappings corresponding to
+          the desired transformation g.
+          The transformed z<sub>v</sub><sup>g</sup> is combined with the invariant component z<sub>i</sub> to form the
+          transformed latent representation &phi;<sub>g</sub>(z) which is sent to decoder to reconstruct the transformed
+          image.
+
+        </div>
         <div class="text-justify content-column" style="font-size: 16px;">
 
           <br>
@@ -284,49 +398,64 @@
           • We randomly sample pairs of data points from the training set.
           <br>
           • The model is optimized using the total loss:
-          
+
           <div style="text-align: center; margin: 15px 0;">
-            <img src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{total}}=\mathcal{L}_{\text{recon}}+\lambda_i\mathcal{L}_{\text{inv}}+\lambda_v\mathcal{L}_{\text{const}}" alt="Total Loss" style="height: 20px; vertical-align: middle;">
+            <img
+              src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{total}}=\mathcal{L}_{\text{recon}}+\lambda_i\mathcal{L}_{\text{inv}}+\lambda_v\mathcal{L}_{\text{const}}"
+              alt="Total Loss" style="height: 20px; vertical-align: middle;">
           </div>
-          
+
           where:
-          
+
           <br><br>
-          
+
           • Reconstruction loss
           <div style="text-align: center; margin: 15px 0;">
-            <img src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{recon}}=||D_{\theta}(\Phi_g(E_{\phi}(x)))-T_g(x)||^2" alt="Reconstruction Loss" style="height: 22px; vertical-align: middle;">
+            <img
+              src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{recon}}=||D_{\theta}(\Phi_g(E_{\phi}(x)))-T_g(x)||^2"
+              alt="Reconstruction Loss" style="height: 22px; vertical-align: middle;">
           </div>
-          ensures that the decoder output of the transformed latent representation matches the ground truth transformed image.
-          
+          ensures that the decoder output of the transformed latent representation matches the ground truth transformed
+          image.
+
           <br><br>
-          
+
           • Invariant loss
           <div style="text-align: center; margin: 15px 0;">
-            <img src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{inv}}=||z_i^{(x)}-\mathrm{sg}[z_i^{(T_g(x))}]||^2" alt="Invariant Loss" style="height: 24px; vertical-align: middle;">
+            <img
+              src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{inv}}=||z_i^{(x)}-\mathrm{sg}[z_i^{(T_g(x))}]||^2"
+              alt="Invariant Loss" style="height: 24px; vertical-align: middle;">
           </div>
           constrains the invariant latent features to be identical for both the original and transformed inputs.
-          
+
           <br><br>
-          
+
           • Consistency loss
           <div style="text-align: center; margin: 15px 0;">
-            <img src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{const}}=||\Phi_g^v(z_v^{(x)})-\mathrm{sg}[z_v^{(T_g(x))}]||^2" alt="Consistency Loss" style="height: 24px; vertical-align: middle;">
+            <img
+              src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{const}}=||\Phi_g^v(z_v^{(x)})-\mathrm{sg}[z_v^{(T_g(x))}]||^2"
+              alt="Consistency Loss" style="height: 24px; vertical-align: middle;">
           </div>
-          ensures that transforming the variant factors in latent space produces the same result as those extracted from the actually transformed image.
-          
+          ensures that transforming the variant factors in latent space produces the same result as those extracted from
+          the actually transformed image.
+
           <br><br>
-          
-          Here, sg[·] (stop-gradient) prevents gradients from flowing through the encoder, focusing learning on latent-space transformations rather than feature extraction adjustments.
-          
+
+          Here, sg[·] (stop-gradient) prevents gradients from flowing through the encoder, focusing learning on
+          latent-space transformations rather than feature extraction adjustments.
+
           <br><br>
-          
-          Hyperparameters λ<sub>i</sub> and λ<sub>v</sub> are set to 1, and the threshold τ controls the sparsity of the learned latent partition.
-          We jointly optimize all network parameters, including the Adaptive Latent Disentanglement (ALD) and group action modules, enabling automatic discovery of meaningful latent partitions while simultaneously learning their corresponding transformations.
-          
+
+          Hyperparameters λ<sub>i</sub> and λ<sub>v</sub> are set to 1, and the threshold τ controls the sparsity of the
+          learned latent partition.
+          We jointly optimize all network parameters, including the Adaptive Latent Disentanglement (ALD) and group
+          action modules, enabling automatic discovery of meaningful latent partitions while simultaneously learning
+          their corresponding transformations.
+
           <br><br>
-          
-          Training uses the Adam optimizer (learning rate <code>1e-3</code>), batch size <code>64</code>, for <code>50</code> epochs, saving the model with the lowest validation loss.
+
+          Training uses the Adam optimizer (learning rate <code>1e-3</code>), batch size <code>64</code>, for
+          <code>50</code> epochs, saving the model with the lowest validation loss.
         </div>
         <!-- <br><br><br>
         <h3>
@@ -348,7 +477,7 @@
   <img src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{const}}" alt="L_const" style="height: 16px; vertical-align: middle;">) achieving the lowest error magnitudes and most optimal reconstructions.
         </div> -->
         <br><br><br>
-        <h3><b>Experimental Results</b></h3>
+        <h3 id="experimental-results"><b>Experimental Results</b></h3>
         <div style="text-align: center;">
 
           <!-- Intro text: same width as other text-justify blocks -->
@@ -358,110 +487,115 @@
 
           <!-- Toggle buttons -->
           <div class="results-toggle-group">
-            <button class="btn btn-dark result-toggle-btn active"
-                    type="button"
-                    data-target="fig-group-actions">
+            <button class="btn btn-dark result-toggle-btn active" type="button" data-target="fig-group-actions">
               Reconstruction &amp; Latent Representation visualization
             </button>
-            <button class="btn btn-dark result-toggle-btn active"
-                    type="button"
-                    data-target="fig-latent">
+            <button class="btn btn-outline-dark result-toggle-btn" type="button" data-target="fig-latent">
               Latent Swap Evaluation
             </button>
-            <button class="btn btn-dark result-toggle-btn active"
-                    type="button"
-                    data-target="fig-ablation">
+            <button class="btn btn-outline-dark result-toggle-btn" type="button" data-target="fig-ablation">
               Ablation of Losses
             </button>
           </div>
 
-
-          <!-- 1. Group Actions on Images (plane figure) -->
-          <div id="fig-group-actions" class="result-fig active-result-fig">
-            <div class="text-justify" style="width: 65%; font-size: 16px; margin: 0 auto;">
-              <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; text-align: left;">
-                <!-- Evaluation of learned group actions in image space -->
-              </h4>
-              <img src="GA_learning_files/images/lat_vizs.png"
-                  class="img-responsive"
-                  alt="Group actions on images"
-                  style="width: 100%; max-height: 600px; margin: 0 auto 12px; display: block;">
-              <div style="font-size: 14px; text-align: justify;">
-                <br>
-                  The above figure displays visualization of disentangled latent representations showing averaged magnitude of varying (z<sub>v</sub>) and invariant (z<sub>i</sub>) components 
-                  for 3D adrenal shapes (left) and 2D rotated blocked MNIST (right), demonstrating effective separation of transformation-specific and 
-                  transformation-invariant features.
-              </div>
-            </div>
-          </div>
-
-          <!-- 2. Latent Space Structure -->
-          <div id="fig-latent" class="result-fig">
-            <div class="text-justify" style="width: 65%; font-size: 16px; margin: 0 auto;">
-              <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; text-align: left;">
-                <!-- Effectiveness of the latent disentanglement (ALD) module -->
-              </h4>
-              <img src="GA_learning_files/images/plane_swap2.png"
-                  class="img-responsive"
-                  alt="Latent representation visualization"
-                  style="width: 100%; max-height: 600px; margin: 0 auto 12px; display: block;">
-              <div style="font-size: 14px; text-align: justify;">
-                <br>
-                The above figure shows the visualizations of latent factor swapping validation of learned disentanglement. By exchanging varying (z<sub>v</sub>) and 
-                invariant (z<sub>i</sub>) components between input pairs, our method generates novel combinations of object orientations with different backgrounds, 
-                demonstrating effective separation of transformation-sensitive and invariant factors without manual specification.
-              </div>
-            </div>
-          </div>
-
-          <!-- 3. Loss Ablation & Error Maps -->
-          <div id="fig-ablation" class="result-fig">
-            <div class="text-justify" style="width: 65%; font-size: 16px; margin: 0 auto;">
-              <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; text-align: left;">
-                <!-- Ablation study on network loss components -->
-              </h4>
-              <img src="./GA_learning_files/images/loss_ablations.png"
-                  class="img-responsive"
-                  alt="Loss ablation study"
-                  style="width: 100%; max-height: 600px; margin: 0 auto 12px; display: block;">
-              <div style="font-size: 14px; text-align: justify;">
-                 <br>
-                  The above figure is related to the qualitative ablation study of different loss components on learning group action and reconstruction quality. 
-                  In each dataset panel, Input and Ground-Truth (GT) pair visualizations (from left to right) with the predicted images operated after learn group actions 
-                  (top to bottom). Top row: 2D MNIST digit and rotated and blocked MNIST datasets, learning SO(2) group actions, respectively. 
-                  Bottom row: 3D brain MRIs and 3D adrenal shapes results, learning SO(3) group actions. The colormap indicates reconstruction error magnitude. 
-                  Our model successfully learns the underlying SO(2) and SO(3) group actions across all loss configurations, with the joint optimization 
-                  (<img src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{inv}}" alt="L_inv" style="height: 16px; vertical-align: middle;"> + 
-                  <img src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{const}}" alt="L_const" style="height: 16px; vertical-align: middle;">) achieving the lowest error magnitudes and most optimal reconstructions.
-                
-              </div>
-            </div>
-          </div>
-
         </div>
 
 
-
+        <!-- 1. Group Actions on Images (plane figure) -->
+        <div id="fig-group-actions" class="result-fig active-result-fig">
+          <div class="text-justify" style="width: 65%; font-size: 16px; margin: 0 auto;">
+            <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; text-align: left;">
+              <!-- Evaluation of learned group actions in image space -->
+            </h4>
+            <img src="GA_learning_files/images/lat_vizs.png" class="img-responsive" alt="Group actions on images"
+              style="width: 100%; max-height: 600px; margin: 0 auto 12px; display: block;">
+            <div style="font-size: 14px; text-align: justify;">
+              <br>
+              The above figure displays visualization of disentangled latent representations showing averaged
+              magnitude of varying (z<sub>v</sub>) and invariant (z<sub>i</sub>) components
+              for 3D adrenal shapes (left) and 2D rotated blocked MNIST (right), demonstrating effective separation of
+              transformation-specific and
+              transformation-invariant features.
+            </div>
+          </div>
         </div>
 
-      </center>
-      </div>
+        <!-- 2. Latent Space Structure -->
+        <div id="fig-latent" class="result-fig">
+          <div class="text-justify" style="width: 65%; font-size: 16px; margin: 0 auto;">
+            <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; text-align: left;">
+              <!-- Effectiveness of the latent disentanglement (ALD) module -->
+            </h4>
+            <img src="GA_learning_files/images/plane_swap2.png" class="img-responsive"
+              alt="Latent representation visualization"
+              style="width: 100%; max-height: 600px; margin: 0 auto 12px; display: block;">
+            <div style="font-size: 14px; text-align: justify;">
+              <br>
+              The above figure shows the visualizations of latent factor swapping validation of learned
+              disentanglement. By exchanging varying (z<sub>v</sub>) and
+              invariant (z<sub>i</sub>) components between input pairs, our method generates novel combinations of
+              object orientations with different backgrounds,
+              demonstrating effective separation of transformation-sensitive and invariant factors without manual
+              specification.
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Loss Ablation & Error Maps -->
+        <div id="fig-ablation" class="result-fig">
+          <div class="text-justify" style="width: 65%; font-size: 16px; margin: 0 auto;">
+            <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; text-align: left;">
+              <!-- Ablation study on network loss components -->
+            </h4>
+            <img src="./GA_learning_files/images/loss_ablations.png" class="img-responsive" alt="Loss ablation study"
+              style="width: 100%; max-height: 600px; margin: 0 auto 12px; display: block;">
+            <div style="font-size: 14px; text-align: justify;">
+              <br>
+              The above figure is related to the qualitative ablation study of different loss components on learning
+              group action and reconstruction quality.
+              In each dataset panel, Input and Ground-Truth (GT) pair visualizations (from left to right) with the
+              predicted images operated after learn group actions
+              (top to bottom). Top row: 2D MNIST digit and rotated and blocked MNIST datasets, learning SO(2) group
+              actions, respectively.
+              Bottom row: 3D brain MRIs and 3D adrenal shapes results, learning SO(3) group actions. The colormap
+              indicates reconstruction error magnitude.
+              Our model successfully learns the underlying SO(2) and SO(3) group actions across all loss
+              configurations, with the joint optimization
+              (<img src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{inv}}" alt="L_inv"
+                style="height: 16px; vertical-align: middle;"> +
+              <img src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{const}}" alt="L_const"
+                style="height: 16px; vertical-align: middle;">) achieving the lowest error magnitudes and most optimal
+              reconstructions.
+
+            </div>
+          </div>
+        </div>
+
     </div>
- 
-    <div class="row">
+
+
+
+  </div>
+
+  </center>
+  </div>
+  </div>
+
+  <div class="row">
     <br><br>
-  <div class="col-md-10 col-md-offset-1 has-text-centered" id="bibtex-section">
+    <div class="col-md-10 col-md-offset-1 has-text-centered" id="bibtex-section">
 
-    <!-- Heading and Button on the same line -->
-    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
-      <h3 style="margin: 0;">BibTeX</h3>
-      <button onclick="copyBibTex()" style="padding: 6px 12px; font-size: 14px;">
-        📋 Copy BibTeX
-      </button>
-    </div>
+      <!-- Heading and Button on the same line -->
+      <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
+        <h3 style="margin: 0;">BibTeX</h3>
+        <button onclick="copyBibTex()" style="padding: 6px 12px; font-size: 14px;">
+          📋 Copy BibTeX
+        </button>
+      </div>
 
-    <!-- BibTeX code block -->
-    <pre style="text-align: left; display: inline-block; background-color: #f8f8f8; padding: 15px; border-radius: 6px;"><code id="bibtex">
+      <!-- BibTeX code block -->
+      <pre
+        style="text-align: left; display: inline-block; background-color: #f8f8f8; padding: 15px; border-radius: 6px;"><code id="bibtex">
 @inproceedings{swarnali2026learning,
   author    = {Swarnali, Farhana Hossain and Zhang, Miaomiao and Hossain, Tonmoy},
   title     = {Learning Group Actions In Disentangled Latent Image Representations},
@@ -471,86 +605,136 @@
 }
 </code></pre>
 
+    </div>
   </div>
-</div>
 
-        <script>
-          function copyBibTex() {
-            const code = document.getElementById("bibtex").innerText;
-            const textarea = document.createElement("textarea");
-            textarea.value = code;
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-              document.execCommand("copy");
-              alert("Copied to clipboard!");
-            } catch (err) {
-              alert("Copy failed.");
-            }
-            document.body.removeChild(textarea);
+  <script>
+    function copyBibTex() {
+      const code = document.getElementById("bibtex").innerText;
+      const textarea = document.createElement("textarea");
+      textarea.value = code;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand("copy");
+        alert("Copied to clipboard!");
+      } catch (err) {
+        alert("Copy failed.");
+      }
+      document.body.removeChild(textarea);
+    }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var buttons = document.querySelectorAll('.result-toggle-btn');
+      var figures = document.querySelectorAll('.result-fig');
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var targetId = btn.getAttribute('data-target');
+
+          // update button styles
+          buttons.forEach(function (b) {
+            b.classList.remove('active');
+            b.classList.remove('btn-dark');
+            b.classList.remove('btn-outline-dark');
+            b.classList.add('btn-outline-dark');
+          });
+          btn.classList.add('active');
+          btn.classList.remove('btn-outline-dark');
+          btn.classList.add('btn-dark');
+
+          // show the selected figure, hide others
+          figures.forEach(function (fig) {
+            fig.classList.remove('active-result-fig');
+          });
+          var targetFig = document.getElementById(targetId);
+          if (targetFig) {
+            targetFig.classList.add('active-result-fig');
           }
-        </script>
-        <script>
-          document.addEventListener('DOMContentLoaded', function () {
-            var buttons = document.querySelectorAll('.result-toggle-btn');
-            var figures = document.querySelectorAll('.result-fig');
+        });
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var bibLink = document.querySelector('a[href="#bibtex-section"]');
+      if (bibLink) {
+        bibLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          var target = document.getElementById('bibtex-section');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      }
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      var internalLinks = document.querySelectorAll('a[href^="#"]');
+      internalLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          var targetId = this.getAttribute('href').substring(1);
+          var target = document.getElementById(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      var sections = [
+        { id: 'abstract' },
+        { id: 'method-overview' },
+        { id: 'experimental-results' },
+        { id: 'bibtex-section' }
+      ];
 
-            buttons.forEach(function (btn) {
-              btn.addEventListener('click', function () {
-                var targetId = btn.getAttribute('data-target');
+      var links = {};
+      sections.forEach(function (s) {
+        links[s.id] = document.querySelector('.top-nav-link[href="#' + s.id + '"]');
+      });
 
-                // update button styles
-                buttons.forEach(function (b) {
-                  b.classList.remove('active');
-                  b.classList.remove('btn-dark');
-                  b.classList.remove('btn-outline-dark');
-                  b.classList.add('btn-outline-dark');
-                });
-                btn.classList.add('active');
-                btn.classList.remove('btn-outline-dark');
-                btn.classList.add('btn-dark');
+      function setActive(id) {
+        Object.keys(links).forEach(function (key) {
+          if (!links[key]) return;
+          links[key].classList.toggle('active', key === id);
+        });
+      }
 
-                // show the selected figure, hide others
-                figures.forEach(function (fig) {
-                  fig.classList.remove('active-result-fig');
-                });
-                var targetFig = document.getElementById(targetId);
-                if (targetFig) {
-                  targetFig.classList.add('active-result-fig');
-                }
-              });
-            });
-          });
-        </script>
-        <script>
-          document.addEventListener('DOMContentLoaded', function () {
-            var bibLink = document.querySelector('a[href="#bibtex-section"]');
-            if (bibLink) {
-              bibLink.addEventListener('click', function (e) {
-                e.preventDefault();
-                var target = document.getElementById('bibtex-section');
-                if (target) {
-                  target.scrollIntoView({ behavior: 'smooth' });
-                }
-              });
-            }
-          });
-        </script>
+      function onScroll() {
+        var fromTop = window.scrollY + 120; // offset for sticky nav
+        var currentId = sections[0].id;
+
+        sections.forEach(function (s) {
+          var el = document.getElementById(s.id);
+          if (!el) return;
+          if (el.offsetTop <= fromTop) {
+            currentId = s.id;
+          }
+        });
+
+        setActive(currentId);
+      }
+
+      window.addEventListener('scroll', onScroll);
+      onScroll();
+    });
+  </script>
 
 
-      </div>
+  </div>
 
-        <h3>
-          Acknowledgements
-        </h3>
+  <h3>
+    Acknowledgements
+  </h3>
 
-        The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>, <A
-          href="https://dorverbin.github.io/refnerf/index.html">RefNeRF</a> , <A
-          href="https://nerfies.github.io/">Nerfies</A> and <A
-          href="https://hhsinping.github.io/svs/supp/visual_comparison.html">Semantic View Synthesis</a>.
-      </div>
-    <!-- </div> -->
-    </div>  
+  The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>, <A
+    href="https://dorverbin.github.io/refnerf/index.html">RefNeRF</a> , <A href="https://nerfies.github.io/">Nerfies</A>
+  and <A href="https://hhsinping.github.io/svs/supp/visual_comparison.html">Semantic View Synthesis</a>.
+  </div>
+  <!-- </div> -->
+  </div>
 </body>
 
 </html>
