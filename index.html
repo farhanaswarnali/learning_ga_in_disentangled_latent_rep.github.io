@@ -380,13 +380,13 @@
           Our architecture employs an encoder–decoder framework with convolutional downsampling modules in the encoder
           and corresponding upsampling modules in the decoder.
           <br>
-          The latent representation z of an image x is first partitioned into transformation variant (z<sub>v</sub>) and
-          invariant (z<sub>i</sub>) components using learnable binary masks (M(&alpha;)) with straight-through
+          The latent representation z of an image x is first partitioned into transformation variant (<img src="https://latex.codecogs.com/svg.latex?z_v" alt="z_v"  style="height: 12px; vertical-align: middle;">) and
+          invariant (<img src="https://latex.codecogs.com/svg.latex?z_i" alt="z_i"  style="height: 12px; vertical-align: middle;">) components using learnable binary masks (<img  src="https://latex.codecogs.com/svg.latex?M(\alpha)"  alt="M(alpha)"  style="height: 15px; vertical-align: middle;">) with straight-through
           estimation.
-          The transformation variant (z<sub>v</sub>) is then transformed using transformation corresponding to
+          The transformation variant (<img src="https://latex.codecogs.com/svg.latex?z_v" alt="z_v"  style="height: 12px; vertical-align: middle;">) is then transformed using transformation corresponding to
           the desired group action g.
-          The transformed z<sub>v</sub><sup>g</sup> is combined with the invariant component z<sub>i</sub> to form the
-          transformed latent representation &phi;<sub>g</sub>(z) which is sent to decoder to reconstruct the transformed
+          The transformed <img src="https://latex.codecogs.com/svg.latex?z_v^g" alt="z_v^g"  style="height: 18px; vertical-align: middle;"> is combined with the invariant component <img src="https://latex.codecogs.com/svg.latex?z_i" alt="z_i"  style="height: 12px; vertical-align: middle;"> to form the
+          transformed latent representation <img src="https://latex.codecogs.com/svg.latex?\Phi_g(z)"  alt="Phi_g(z)"   style="height: 20px; vertical-align: middle;"> which is sent to decoder to reconstruct the transformed
           image.
 
         </div>
