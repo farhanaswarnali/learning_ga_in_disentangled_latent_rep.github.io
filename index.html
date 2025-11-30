@@ -379,12 +379,12 @@
 
           Our architecture employs an encoder–decoder framework with convolutional downsampling modules in the encoder
           and corresponding upsampling modules in the decoder.
-          <br><br>
+          <br>
           The latent representation z of an image x is first partitioned into transformation variant (z<sub>v</sub>) and
           invariant (z<sub>i</sub>) components using learnable binary masks (M(&alpha;)) with straight-through
           estimation.
-          The transformation variant (z<sub>v</sub>) is then transformed using group action mappings corresponding to
-          the desired transformation g.
+          The transformation variant (z<sub>v</sub>) is then transformed using transformation corresponding to
+          the desired group action g.
           The transformed z<sub>v</sub><sup>g</sup> is combined with the invariant component z<sub>i</sub> to form the
           transformed latent representation &phi;<sub>g</sub>(z) which is sent to decoder to reconstruct the transformed
           image.
@@ -392,7 +392,7 @@
         </div>
         <div class="text-justify content-column" style="font-size: 16px;">
 
-          <br>
+          <!-- <br>
           During training:
           <br>
           • We randomly sample pairs of data points from the training set.
@@ -455,7 +455,7 @@
           <br><br>
 
           Training uses the Adam optimizer (learning rate <code>1e-3</code>), batch size <code>64</code>, for
-          <code>50</code> epochs, saving the model with the lowest validation loss.
+          <code>50</code> epochs, saving the model with the lowest validation loss. -->
         </div>
         <!-- <br><br><br>
         <h3>
@@ -528,7 +528,7 @@
             </h4>
             <img src="GA_learning_files/images/plane_swap2.png" class="img-responsive"
               alt="Latent representation visualization"
-              style="width: 100%; max-height: 600px; margin: 0 auto 12px; display: block;">
+              style="width: 85%; max-height: 600px; margin: 0 auto 12px; display: block;">
             <div style="font-size: 14px; text-align: justify;">
               <br>
               The above figure shows the visualizations of latent factor swapping validation of learned
