@@ -380,7 +380,7 @@
           Our architecture employs an encoder–decoder framework with convolutional downsampling modules in the encoder
           and corresponding upsampling modules in the decoder.
           <br>
-          The latent representation z of an image x is first partitioned into transformation variant (<img src="https://latex.codecogs.com/svg.latex?z_v" alt="z_v"  style="height: 12px; vertical-align: middle;">) and
+          The latent representation <img src="https://latex.codecogs.com/svg.latex?z" alt="z"  style="height: 8px; vertical-align: middle;"> of an image <img src="https://latex.codecogs.com/svg.latex?x" alt="x"  style="height: 8px; vertical-align: middle;"> is first partitioned into transformation variant (<img src="https://latex.codecogs.com/svg.latex?z_v" alt="z_v"  style="height: 12px; vertical-align: middle;">) and
           invariant (<img src="https://latex.codecogs.com/svg.latex?z_i" alt="z_i"  style="height: 12px; vertical-align: middle;">) components using learnable binary masks (<img  src="https://latex.codecogs.com/svg.latex?M(\alpha)"  alt="M(alpha)"  style="height: 15px; vertical-align: middle;">) with straight-through
           estimation.
           The transformation variant (<img src="https://latex.codecogs.com/svg.latex?z_v" alt="z_v"  style="height: 12px; vertical-align: middle;">) is then transformed using transformation corresponding to
@@ -512,7 +512,8 @@
             <div style="font-size: 14px; text-align: justify;">
               <br>
               The above figure displays visualization of disentangled latent representations showing averaged
-              magnitude of varying (z<sub>v</sub>) and invariant (z<sub>i</sub>) components
+              magnitude of varying (<img src="https://latex.codecogs.com/svg.latex?z_v" alt="z_v"  style="height: 12px; vertical-align: middle;">) and 
+              invariant (<img src="https://latex.codecogs.com/svg.latex?z_i" alt="z_i"  style="height: 12px; vertical-align: middle;">) components
               for 3D adrenal shapes (left) and 2D rotated blocked MNIST (right), demonstrating effective separation of
               transformation-specific and
               transformation-invariant features.
@@ -532,8 +533,8 @@
             <div style="font-size: 14px; text-align: justify;">
               <br>
               The above figure shows the visualizations of latent factor swapping validation of learned
-              disentanglement. By exchanging varying (z<sub>v</sub>) and
-              invariant (z<sub>i</sub>) components between input pairs, our method generates novel combinations of
+              disentanglement. By exchanging varying (<img src="https://latex.codecogs.com/svg.latex?z_v" alt="z_v"  style="height: 12px; vertical-align: middle;">) and
+              invariant (<img src="https://latex.codecogs.com/svg.latex?z_i" alt="z_i"  style="height: 12px; vertical-align: middle;">) components between input pairs, our method generates novel combinations of
               object orientations with different backgrounds,
               demonstrating effective separation of transformation-sensitive and invariant factors without manual
               specification.
