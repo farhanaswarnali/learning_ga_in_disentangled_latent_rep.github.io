@@ -131,10 +131,23 @@
       color: #111827;
     }
 
+    /* for paper name */
+    /* #title {
+      font-size: 34px !important;
+      line-height: 1.2;
+    } */
     #title {
       font-size: 34px !important;
       line-height: 1.2;
+      max-width: 720px;
+      /* or 700–800px, tune as you like */
+      margin: 0 auto;
+      /* center the block */
+      text-wrap: balance;
+      /* optional, nicer line breaks in modern browsers */
     }
+
+
 
     #header {
       border-bottom: none;
@@ -242,53 +255,89 @@
 </head>
 
 <body onload="ChangeSim(0)">
-  <div class="container" id="header" style="text-align: center; margin: auto;">
-    <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
-      <h2 class="col-md-12 text-center" id="title" style="font-size: 39px;">
-        <!-- <b>Editing Neural Radiance Fields from <br>a Single Reference Image<br></b> -->
-        <b>Learning Group Actions In Disentangled Latent Image Representations</b>
-      </h2>
-    </div>
-    <div class="publication-authors" style="text-align: center; line-height: 1.6;">
-      <div>
-        <a href="https://www.linkedin.com/in/farhanaswarnali/" style="font-size: 18px;">Farhana Hossain
-          Swarnali</a><sup>1</sup>&nbsp;&nbsp;
-        <a href="https://www.linkedin.com/in/miaomiao-zhang-a5665055/" style="font-size: 18px;">Miaomiao
-          Zhang</a><sup>2</sup>&nbsp;&nbsp;
-        <a href="https://www.linkedin.com/in/tonmoy-hossain-dihan/" style="font-size: 18px;">Tonmoy
-          Hossain</a><sup>2</sup>&nbsp;&nbsp;
+  <!-- <div class="container" id="header" style="text-align: center; margin: auto;"> -->
+  <div id="header" style="text-align:center; position:relative; overflow:hidden; padding-bottom:20px;">
+    <div class="container">
+
+      <img src="GA_learning_files/images/bg_pic.jpeg" alt="Header Background" style="
+       position:absolute;
+       top:0; 
+       right:0;
+       bottom:0; 
+       left:0;
+       width:100%;
+       height:100%;
+       object-fit:cover; 
+       opacity:0.18;
+       pointer-events:none;
+       user-select:none;
+     ">
+
+
+      <!-- for the one with wacv logo....change pic directory -->
+      <!-- <div class="container" id="header" style="text-align:center; margin:auto; position:relative; overflow:hidden;"> -->
+
+      <!-- <img src="GA_learning_files\images\bg_pic.jpeg" alt="WACV Watermark" style="
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      height:260px;
+      opacity:0.1;
+      pointer-events:none;
+      user-select:none;
+    "> -->
+
+      <div style="text-align:center; margin-top:25px; margin-bottom:10px;">
+        <img src="GA_learning_files\images\wacv-navbar-logo.svg" alt="WACV Logo" style="height:75px;">
       </div>
-      <div style="font-size: 18px; margin-top: 5px;">
-        <sup>1</sup>Genuity Systems Limited&nbsp;&nbsp;
-        <sup>2</sup>University of Virginia&nbsp;&nbsp;
+
+      <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
+        <h2 class="col-md-12 text-center" id="title" style="font-size: 39px;">
+          <!-- <b>Editing Neural Radiance Fields from <br>a Single Reference Image<br></b> -->
+          <b>Learning Group Actions In Disentangled Latent Image Representations</b>
+        </h2>
       </div>
-    </div>
-    <h2 class="title is-3 publication-title" style="font-size: 26px; margin-top: 20px; margin-bottom: 16px;">WACV 2026
-    </h2>
-    <div class="publication-links" style="margin-top: 20px;">
+      <div class="publication-authors" style="text-align: center; line-height: 1.6;">
+        <div>
+          <a href="https://www.linkedin.com/in/farhanaswarnali/" style="font-size: 18px;">Farhana Hossain
+            Swarnali</a><sup>1</sup>&nbsp;&nbsp;
+          <a href="https://www.linkedin.com/in/miaomiao-zhang-a5665055/" style="font-size: 18px;">Miaomiao
+            Zhang</a><sup>2</sup>&nbsp;&nbsp;
+          <a href="https://www.linkedin.com/in/tonmoy-hossain-dihan/" style="font-size: 18px;">Tonmoy
+            Hossain</a><sup>2</sup>&nbsp;&nbsp;
+        </div>
+        <div style="font-size: 18px; margin-top: 5px;">
+          <sup>1</sup>Genuity Systems Limited&nbsp;&nbsp;
+          <sup>2</sup>University of Virginia&nbsp;&nbsp;
+        </div>
+      </div>
+      <!-- <h2 class="title is-3 publication-title" style="font-size: 26px; margin-top: 20px; margin-bottom: 16px;">WACV 2026
+      </h2> -->
+      <div class="publication-links" style="margin-top: 20px;">
 
-      <!-- Paper Link -->
-      <span class="link-block" style="margin-right: 10px;">
-        <a href="" class="external-link button is-large is-rounded is-dark">
+        <!-- Paper Link -->
+        <span class="link-block" style="margin-right: 10px;">
+          <a href="" class="external-link button is-large is-rounded is-dark">
 
-          <span class="icon is-large">
-            <i class="fas fa-file-pdf fa-lg"></i>
-          </span>
-          <span>Paper</span>
-        </a>
-      </span>
-      <!-- Arxiv Link -->
-      <span class="link-block" style="margin-right: 10px;">
-        <a href="" class="external-link button is-large is-rounded is-dark">
+            <span class="icon is-large">
+              <i class="fas fa-file-pdf fa-lg"></i>
+            </span>
+            <span>Paper</span>
+          </a>
+        </span>
+        <!-- Arxiv Link -->
+        <span class="link-block" style="margin-right: 10px;">
+          <a href="" class="external-link button is-large is-rounded is-dark">
 
-          <span class="icon is-large">
-            <i class="fas fa-file-pdf fa-lg"></i>
-          </span>
-          <span>Arxiv</span>
-        </a>
-      </span>
-      <!-- Poster Link -->
-      <!-- <span class="link-block" style="margin-right: 10px;">
+            <span class="icon is-large">
+              <i class="fas fa-file-pdf fa-lg"></i>
+            </span>
+            <span>Arxiv</span>
+          </a>
+        </span>
+        <!-- Poster Link -->
+        <!-- <span class="link-block" style="margin-right: 10px;">
       <a href=""
         class="external-link button is-large is-rounded is-dark">
       
@@ -299,18 +348,18 @@
       </a>
     </span> -->
 
-      <!-- Code Link -->
-      <span class="link-block" style="margin-right: 10px;">
-        <a href="https://github.com/farhanaswarnali/Learning-Group-Actions-In-Disentangled-Latent-Image-Representations"
-          class="external-link button is-large is-rounded is-dark">
-          <span class="icon is-large">
-            <i class="fab fa-github fa-lg"></i>
-          </span>
-          <span>Code</span>
-        </a>
-      </span>
-      <!-- BibTeX Link -->
-      <!-- <span class="link-block">
+        <!-- Code Link -->
+        <span class="link-block" style="margin-right: 10px;">
+          <a href="https://github.com/farhanaswarnali/Learning-Group-Actions-In-Disentangled-Latent-Image-Representations"
+            class="external-link button is-large is-rounded is-dark">
+            <span class="icon is-large">
+              <i class="fab fa-github fa-lg"></i>
+            </span>
+            <span>Code</span>
+          </a>
+        </span>
+        <!-- BibTeX Link -->
+        <!-- <span class="link-block">
       <a href="#bibtex-section"
         class="external-link button is-large is-rounded is-dark">       
         <span class="icon is-large">
@@ -319,8 +368,10 @@
         <span>BibTeX</span>
       </a>
     </span> -->
+      </div>
     </div>
   </div>
+
   <!-- Top navigation bar -->
   <nav class="top-nav">
     <div class="top-nav-inner">
@@ -380,13 +431,25 @@
           Our architecture employs an encoder–decoder framework with convolutional downsampling modules in the encoder
           and corresponding upsampling modules in the decoder.
           <br>
-          The latent representation <img src="https://latex.codecogs.com/svg.latex?z" alt="z"  style="height: 8px; vertical-align: middle;"> of an image <img src="https://latex.codecogs.com/svg.latex?x" alt="x"  style="height: 8px; vertical-align: middle;"> is first partitioned into transformation variant (<img src="https://latex.codecogs.com/svg.latex?z_v" alt="z_v"  style="height: 12px; vertical-align: middle;">) and
-          invariant (<img src="https://latex.codecogs.com/svg.latex?z_i" alt="z_i"  style="height: 12px; vertical-align: middle;">) components using learnable binary masks (<img  src="https://latex.codecogs.com/svg.latex?M(\alpha)"  alt="M(alpha)"  style="height: 15px; vertical-align: middle;">) with straight-through
+          The latent representation <img src="https://latex.codecogs.com/svg.latex?z" alt="z"
+            style="height: 8px; vertical-align: middle;"> of an image <img src="https://latex.codecogs.com/svg.latex?x"
+            alt="x" style="height: 8px; vertical-align: middle;"> is
+          first partitioned into transformation variant (<img src="https://latex.codecogs.com/svg.latex?z_v" alt="z_v"
+            style="height: 12px; vertical-align: middle;">) and
+          invariant (<img src="https://latex.codecogs.com/svg.latex?z_i" alt="z_i"
+            style="height: 12px; vertical-align: middle;">) components using learnable binary masks (<img
+            src="https://latex.codecogs.com/svg.latex?M(\alpha)" alt="M(alpha)"
+            style="height: 15px; vertical-align: middle;">) with straight-through
           estimation.
-          The transformation variant (<img src="https://latex.codecogs.com/svg.latex?z_v" alt="z_v"  style="height: 12px; vertical-align: middle;">) is then transformed using transformation corresponding to
+          The transformation variant (<img src="https://latex.codecogs.com/svg.latex?z_v" alt="z_v"
+            style="height: 12px; vertical-align: middle;">) is then transformed using transformation corresponding to
           the desired group action g.
-          The transformed <img src="https://latex.codecogs.com/svg.latex?z_v^g" alt="z_v^g"  style="height: 18px; vertical-align: middle;"> is combined with the invariant component <img src="https://latex.codecogs.com/svg.latex?z_i" alt="z_i"  style="height: 12px; vertical-align: middle;"> to form the
-          transformed latent representation <img src="https://latex.codecogs.com/svg.latex?\Phi_g(z)"  alt="Phi_g(z)"   style="height: 20px; vertical-align: middle;"> which is sent to decoder to reconstruct the transformed
+          The transformed <img src="https://latex.codecogs.com/svg.latex?z_v^g" alt="z_v^g"
+            style="height: 18px; vertical-align: middle;"> is combined with the invariant component <img
+            src="https://latex.codecogs.com/svg.latex?z_i" alt="z_i" style="height: 12px; vertical-align: middle;"> to
+          form the
+          transformed latent representation <img src="https://latex.codecogs.com/svg.latex?\Phi_g(z)" alt="Phi_g(z)"
+            style="height: 20px; vertical-align: middle;"> which is sent to decoder to reconstruct the transformed
           image.
 
         </div>
@@ -512,8 +575,10 @@
             <div style="font-size: 14px; text-align: justify;">
               <br>
               The above figure displays visualization of disentangled latent representations showing averaged
-              magnitude of varying (<img src="https://latex.codecogs.com/svg.latex?z_v" alt="z_v"  style="height: 12px; vertical-align: middle;">) and 
-              invariant (<img src="https://latex.codecogs.com/svg.latex?z_i" alt="z_i"  style="height: 12px; vertical-align: middle;">) components
+              magnitude of varying (<img src="https://latex.codecogs.com/svg.latex?z_v" alt="z_v"
+                style="height: 12px; vertical-align: middle;">) and
+              invariant (<img src="https://latex.codecogs.com/svg.latex?z_i" alt="z_i"
+                style="height: 12px; vertical-align: middle;">) components
               for 3D adrenal shapes (left) and 2D rotated blocked MNIST (right), demonstrating effective separation of
               transformation-specific and
               transformation-invariant features.
@@ -533,8 +598,11 @@
             <div style="font-size: 14px; text-align: justify;">
               <br>
               The above figure shows the visualizations of latent factor swapping validation of learned
-              disentanglement. By exchanging varying (<img src="https://latex.codecogs.com/svg.latex?z_v" alt="z_v"  style="height: 12px; vertical-align: middle;">) and
-              invariant (<img src="https://latex.codecogs.com/svg.latex?z_i" alt="z_i"  style="height: 12px; vertical-align: middle;">) components between input pairs, our method generates novel combinations of
+              disentanglement. By exchanging varying (<img src="https://latex.codecogs.com/svg.latex?z_v" alt="z_v"
+                style="height: 12px; vertical-align: middle;">) and
+              invariant (<img src="https://latex.codecogs.com/svg.latex?z_i" alt="z_i"
+                style="height: 12px; vertical-align: middle;">) components between input pairs, our method generates
+              novel combinations of
               object orientations with different backgrounds,
               demonstrating effective separation of transformation-sensitive and invariant factors without manual
               specification.
