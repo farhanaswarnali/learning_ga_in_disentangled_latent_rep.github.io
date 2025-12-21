@@ -24,7 +24,7 @@ During training:
 - We **randomly sample pairs of data points** from the training set.
 - The model is optimized using the total loss:
 
-![L_total](https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{total}}=\mathcal{L}_{\text{recon}}+\lambda_i\mathcal{L}_{\text{inv}}+\lambda_v\mathcal{L}_{\text{const}})
+![L_total](https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{total}}=\lambda_r\mathcal{L}_{\text{recon}}+\lambda_i\mathcal{L}_{\text{inv}}+\lambda_v\mathcal{L}_{\text{const}})
 
 where:
 
